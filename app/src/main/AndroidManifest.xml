@@ -24,6 +24,12 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".ui.start.login.LoginActivity"
+            android:exported="true"/>
+
+        <activity android:name=".ui.start.signup.SignupAcitivity"
+            android:exported="true"/>
+
     </application>
 
 </manifest>

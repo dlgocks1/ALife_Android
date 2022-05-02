@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <data>
+        <variable
+            name="signupViewModel"
+            type="com.alife.alife_medifood_android.ui.start.signup.SignupViewModel" />
+    </data>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="20dp">
+
+    <ImageView
+        android:layout_width="15dp"
+        android:layout_height="25dp"
+        android:src="@drawable/icon_backarrow"
+        android:id="@+id/signup_back_iv"
+        android:layout_marginTop="20dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="좋아하는 음식 카테고리를 선택하세요."
+        android:id="@+id/login_signup_foodcategory_tv"
+        android:layout_marginTop="40dp"
+        android:textStyle="bold"
+        android:textSize="23sp"/>
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:columnCount="3"
+        android:layout_marginTop="20dp"
+        >
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="한식"
+            android:id="@+id/login_signup_foodcategory_cb1"
+            />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="중식"
+            android:id="@+id/login_signup_foodcategory_cb2"
+            />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="일식"
+            android:id="@+id/login_signup_foodcategory_cb3"
+            />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="양식"
+            android:id="@+id/login_signup_foodcategory_cb4"
+            />
+
+    </GridLayout>
+
+    <!-- 끝에 정렬-->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="다음"
+        android:textColor="@color/white"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        android:id="@+id/signup_next_bt"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        />
+
+</LinearLayout>
+</layout>

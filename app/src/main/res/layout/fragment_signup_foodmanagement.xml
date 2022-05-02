@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <data>
+        <variable
+            name="signupViewModel"
+            type="com.alife.alife_medifood_android.ui.start.signup.SignupViewModel" />
+    </data>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="20dp">
+
+    <ImageView
+        android:layout_width="15dp"
+        android:layout_height="25dp"
+        android:src="@drawable/icon_backarrow"
+        android:id="@+id/signup_back_iv"
+        android:layout_marginTop="20dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="원하는 식단관리를 추가해주세요."
+        android:id="@+id/login_signup_foodmanagement_tv"
+        android:layout_marginTop="40dp"
+        android:textStyle="bold"
+        android:textSize="23sp"/>
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        >
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="고단백 식단"
+            android:id="@+id/login_signup_foodmanagement_cb1"
+            />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="저탄수 식단"
+            android:id="@+id/login_signup_foodmanagement_cb2"
+            />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="저당 식단"
+            android:id="@+id/login_signup_foodmanagement_cb3"
+            />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="저열량 식단"
+            android:id="@+id/login_signup_foodmanagement_cb4"
+            />
+
+    </GridLayout>
+
+    <!-- 끝에 정렬-->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="다음"
+        android:textColor="@color/white"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        android:id="@+id/signup_next_bt"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        />
+
+</LinearLayout>
+</layout>
