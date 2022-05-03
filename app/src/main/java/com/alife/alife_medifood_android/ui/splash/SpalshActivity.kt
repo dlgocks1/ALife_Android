@@ -6,6 +6,7 @@ import android.os.Looper
 import com.alife.alife_medifood_android.R
 import com.alife.alife_medifood_android.databinding.ActivitySplashBinding
 import com.alife.alife_medifood_android.ui.BaseActivity
+import com.alife.alife_medifood_android.ui.main.MainActivity
 import com.alife.alife_medifood_android.ui.start.login.LoginActivity
 
 class SpalshActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_splash) {

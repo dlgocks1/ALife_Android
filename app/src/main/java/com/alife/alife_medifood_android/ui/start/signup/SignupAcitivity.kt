@@ -1,5 +1,6 @@
 package com.alife.alife_medifood_android.ui.start.signup
 
+import android.content.Intent
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -12,6 +13,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.alife.alife_medifood_android.R
 import com.alife.alife_medifood_android.databinding.ActivitySignupBinding
 import com.alife.alife_medifood_android.ui.BaseActivity
+import com.alife.alife_medifood_android.ui.main.MainActivity
 
 class SignupAcitivity : BaseActivity<ActivitySignupBinding>(R.layout.activity_signup) {
 
@@ -71,6 +73,12 @@ class SignupAcitivity : BaseActivity<ActivitySignupBinding>(R.layout.activity_si
     fun nextPage() {
         if (binding.signupVp.currentItem != 3) {
             binding.signupVp.currentItem = binding.signupVp.currentItem.plus(1)
+        }else{
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            intent.putExtra("Email",signupViewModel.email.value.toString())
+            intent.putExtra("Password",signupViewModel.password.value.toString())
+            startActivity(intent)
         }
     }
 
