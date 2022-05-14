@@ -12,6 +12,7 @@ class SignupViewModel : ViewModel() {
 
     private val _email = MutableLiveData<String>()
     private val _password = MutableLiveData<String>()
+    // 안씀
     private val _adapter = MutableLiveData<SignupAcitivity.PagerAdapter>()
     private val _currentPage = MutableLiveData<Int>()
 
@@ -45,7 +46,6 @@ class SignupViewModel : ViewModel() {
 
     init {
         _email.value = ""
-        _adapter.value = null
         _currentPage.value = 0
     }
 

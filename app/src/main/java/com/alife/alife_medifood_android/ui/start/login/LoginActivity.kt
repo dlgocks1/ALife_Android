@@ -12,7 +12,6 @@ class LoginActivity:BaseActivity<ActivityLoginBinding>(R.layout.activity_login) 
     override fun initView() {
 
     }
-
     override fun initListener() {
 
         val onClickListener = View.OnClickListener {
@@ -21,7 +20,6 @@ class LoginActivity:BaseActivity<ActivityLoginBinding>(R.layout.activity_login) 
                 R.id.login_signup_tv -> startActivity(Intent(this,SignupAcitivity::class.java))
             }
         }
-
         binding.loginSignupTv.setOnClickListener(onClickListener)
         binding.loginBt.setOnClickListener(onClickListener)
     }

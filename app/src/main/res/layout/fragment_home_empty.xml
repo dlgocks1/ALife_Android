@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    >
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="나만의 식단 관리 '앱 이름'"
+        android:id="@+id/home_main_tv"
+        android:textSize="27sp"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:fontFamily="@font/roboto_bold"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/home_suv_tv"
+        android:text="메인화면 식단등록되기 전"
+        android:fontFamily="@font/roboto_bold"
+        app:layout_constraintTop_toBottomOf="@id/home_main_tv"
+        app:layout_constraintStart_toStartOf="@id/home_main_tv"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/home_content_tv"
+        android:textColor="@color/black"
+        android:text="등록된 식단이 없어요!"
+        android:textSize="24sp"
+        android:fontFamily="@font/roboto_bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="식단 등록하러 가기"
+        android:id="@+id/home_starttoregister_bt"
+        app:layout_constraintTop_toBottomOf="@id/home_content_tv"
+        app:layout_constraintStart_toStartOf="@id/home_content_tv"
+        app:layout_constraintEnd_toEndOf="@id/home_content_tv"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/roboto_bold"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

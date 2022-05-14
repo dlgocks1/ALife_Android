@@ -33,39 +33,57 @@
         android:textSize="23sp"/>
 
     <GridLayout
-        android:layout_width="wrap_content"
-        android:layout_gravity="center"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:columnCount="3"
         android:layout_marginTop="20dp"
         >
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="한식"
-            android:id="@+id/login_signup_foodcategory_cb1"
-            />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="한식"
+                android:id="@+id/login_signup_foodcategory_cb1"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                />
 
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="중식"
-            android:id="@+id/login_signup_foodcategory_cb2"
-            />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="중식"
+                android:id="@+id/login_signup_foodcategory_cb2"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                />
 
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="일식"
-            android:id="@+id/login_signup_foodcategory_cb3"
-            />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="일식"
+                android:id="@+id/login_signup_foodcategory_cb3"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                />
 
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="양식"
-            android:id="@+id/login_signup_foodcategory_cb4"
-            />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="양식"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:id="@+id/login_signup_foodcategory_cb4"
+                />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="분식"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:id="@+id/login_signup_foodcategory_cb5"
+                />
+
 
     </GridLayout>
 
@@ -76,7 +94,7 @@
         android:layout_weight="1"
         />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="다음"

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/fragment_home"
+    android:id="@+id/navigation">
+
+    <fragment
+        android:id="@+id/fragment_home"
+        android:name="com.alife.alife_medifood_android.ui.main.home.FragmentHome"
+        android:label="homeFragment"
+        >
+        <action
+            android:id="@+id/action_fragment_home_to_fragment_home_empty"
+            app:destination="@id/fragment_home_empty" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_home_empty"
+        android:name="com.alife.alife_medifood_android.ui.main.home.FragmentHomeEmpty"
+        android:label="homeFragment"
+        />
+
+
+
+    <fragment
+        android:id="@+id/fragment_calenar"
+        android:name="com.alife.alife_medifood_android.ui.main.calendar.FragmentCalendar"
+        android:label="calendarFragment"
+        />
+
+    <fragment
+        android:id="@+id/fragment_mypage"
+        android:name="com.alife.alife_medifood_android.ui.main.mypage.FragmentMypage"
+        android:label="mypageFragment"
+        />
+
+</navigation>

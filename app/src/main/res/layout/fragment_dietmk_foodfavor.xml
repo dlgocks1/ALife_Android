@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="20dp"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="식단 관리를 원하는 방향을 선택해 주세요."
+        android:layout_marginTop="40dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="20sp"/>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:columnCount="3"
+        android:layout_marginTop="20dp"
+        >
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="고단백 식단"
+            android:id="@+id/dietmk_foodfavor_cb1"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="저탄수 식단"
+            android:id="@+id/dietmk_foodfavor_cb2"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="저당 식단"
+            android:id="@+id/dietmk_foodfavor_cb3"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="저염 식단"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:id="@+id/dietmk_foodfavor_cb4"
+            />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="저열량 식단"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:id="@+id/dietmk_foodfavor_cb5"
+            />
+
+
+    </GridLayout>
+
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="다음"
+        android:textColor="@color/white"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        android:id="@+id/dietmk_next_bt"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        />
+
+
+</LinearLayout>
+
+</layout>

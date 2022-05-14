@@ -64,6 +64,7 @@
         android:layout_width="90dp"
         android:layout_height="40dp"
         android:text="중복확인"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         android:id="@+id/login_signup_email_duplicatecheck_bt"
         app:layout_constraintTop_toTopOf="@+id/login_signup_email_edittv"

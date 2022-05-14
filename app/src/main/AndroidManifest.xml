@@ -37,6 +37,8 @@
 
         <activity android:name=".ui.start.signup.SignupAcitivity"
             android:exported="true"/>
+        <activity android:name="com.alife.alife_medifood_android.ui.main.home.dietmk.DietmkActivity"
+            android:exported="true"/>
 
     </application>
 
