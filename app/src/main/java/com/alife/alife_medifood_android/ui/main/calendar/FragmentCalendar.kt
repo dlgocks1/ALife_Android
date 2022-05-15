@@ -8,7 +8,7 @@ import com.alife.alife_medifood_android.ui.BaseFragment
 class FragmentCalendar : BaseFragment<FragmentCalendarBinding>(R.layout.fragment_calendar){
 
     override fun initView() {
-        binding.lifecycleOwner= this
+//        binding.lifecycleOwner= this
         val moringadpater = CalendarFoodAdapter()
         val dummyfoodList = arrayOf(
             Food("순두부 국","253kcal",R.drawable.img_dummy_food),

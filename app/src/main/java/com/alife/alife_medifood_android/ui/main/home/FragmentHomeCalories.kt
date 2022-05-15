@@ -9,9 +9,6 @@ import com.hookedonplay.decoviewlib.charts.SeriesItem
 import com.hookedonplay.decoviewlib.events.DecoEvent
 
 
-
-
-
 class FragmentHomeCalories : BaseFragment<FragmentHomeCaloriesBinding>(R.layout.fragment_home_calories) {
     override fun initView() {
 

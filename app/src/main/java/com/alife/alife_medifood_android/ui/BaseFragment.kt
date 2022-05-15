@@ -1,6 +1,7 @@
 package com.alife.alife_medifood_android.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,6 +32,7 @@ abstract class BaseFragment<T : ViewDataBinding>(
         initViewModel()
         initListener()
         afterViewCreated()
+        Log.d("BaseActivity : ${_binding}","OnCreate")
     }
 
     protected open fun afterViewCreated(){}

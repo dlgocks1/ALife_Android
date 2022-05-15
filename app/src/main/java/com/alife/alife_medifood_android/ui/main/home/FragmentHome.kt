@@ -10,7 +10,7 @@ class FragmentHome : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home){
     private lateinit var mainViewModel : MainViewModel
 
     override fun initView() {
-        binding.lifecycleOwner = this
+//        binding.lifecycleOwner = this
         mainViewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
         binding.mainViewModel = mainViewModel
 
