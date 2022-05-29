@@ -1,4 +1,4 @@
-package com.alife.alife_medifood_android.ui.main.home
+package com.alife.alife_medifood_android.ui.home
 
 import androidx.lifecycle.ViewModelProvider
 import com.alife.alife_medifood_android.R

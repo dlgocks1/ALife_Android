@@ -1,4 +1,4 @@
-package com.alife.alife_medifood_android.ui.main.home.dietmk
+package com.alife.alife_medifood_android.ui.home.dietmk
 
 import com.alife.alife_medifood_android.R
 import com.alife.alife_medifood_android.databinding.FragmentDietmkBudgetBinding

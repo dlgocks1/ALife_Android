@@ -1,4 +1,4 @@
-package com.alife.alife_medifood_android.ui.main.mypage
+package com.alife.alife_medifood_android.ui.mypage
 
 import com.alife.alife_medifood_android.R
 import com.alife.alife_medifood_android.databinding.FragmentMypageBinding

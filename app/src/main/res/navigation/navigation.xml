@@ -7,32 +7,37 @@
 
     <keep_state_fragment
         android:id="@+id/fragment_home"
-        android:name="com.alife.alife_medifood_android.ui.main.home.FragmentHome"
+        android:name="com.alife.alife_medifood_android.ui.home.FragmentHome"
         android:label="homeFragment"
         >
-        <action
-            android:id="@+id/action_fragment_home_to_fragment_home_empty"
-            app:destination="@id/fragment_home_empty" />
+<!--        <action-->
+<!--            android:id="@+id/action_fragment_home_to_fragment_home_empty"-->
+<!--            app:destination="@id/fragment_home_empty" />-->
     </keep_state_fragment>
 
     <keep_state_fragment
         android:id="@+id/fragment_home_empty"
-        android:name="com.alife.alife_medifood_android.ui.main.home.FragmentHomeEmpty"
+        android:name="com.alife.alife_medifood_android.ui.home.FragmentHomeEmpty"
         android:label="homeFragment"
         />
 
-
-
     <keep_state_fragment
         android:id="@+id/fragment_calenar"
-        android:name="com.alife.alife_medifood_android.ui.main.calendar.FragmentCalendar"
+        android:name="com.alife.alife_medifood_android.ui.calendar.FragmentCalendar"
         android:label="calendarFragment"
         />
 
     <keep_state_fragment
         android:id="@+id/fragment_mypage"
-        android:name="com.alife.alife_medifood_android.ui.main.mypage.FragmentMypage"
+        android:name="com.alife.alife_medifood_android.ui.mypage.FragmentMypage"
         android:label="mypageFragment"
         />
+
+    <keep_state_fragment
+        android:id="@+id/fragment_shopping"
+        android:name="com.alife.alife_medifood_android.ui.shopping.FragmenShoppingContainer"
+        android:label="shoppingFragment"
+        />
+
 
 </navigation>

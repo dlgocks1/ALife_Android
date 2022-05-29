@@ -1,4 +1,4 @@
-package com.alife.alife_medifood_android.ui.main.home.dietmk
+package com.alife.alife_medifood_android.ui.home.dietmk
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -1,4 +1,4 @@
-package com.alife.alife_medifood_android.ui.main.home.dietmk
+package com.alife.alife_medifood_android.ui.home.dietmk
 
 import android.content.Intent
 import android.view.View
@@ -28,12 +28,11 @@ class DietmkActivity : BaseActivity<ActivityDietmkBinding>(R.layout.activity_die
     }
 
     class DietmkPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
-        override fun getItemCount(): Int = 3
+        override fun getItemCount(): Int = 2
         override fun createFragment(position: Int): Fragment {
             return when (position) {
-                0 -> FragmentDietmkDay()
-                1 -> FragmentDietmkFoodfavor()
-                2 -> FragmentDietmkBudget()
+                0 -> FragmentDietmkBudget()
+                1 -> FragmentDietmkSelectFood()
                 else -> FragmentDietmkFoodfavor()
             }
         }
@@ -60,7 +59,7 @@ class DietmkActivity : BaseActivity<ActivityDietmkBinding>(R.layout.activity_die
     }
 
     fun nextPage() {
-        if (binding.dietdayContainer.currentItem != 2) {
+        if (binding.dietdayContainer.currentItem != 1) {
             binding.dietdayContainer.currentItem = binding.dietdayContainer.currentItem.plus(1)
         }else{
             val intent = Intent(this, MainActivity::class.java)

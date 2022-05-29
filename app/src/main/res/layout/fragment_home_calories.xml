@@ -1,52 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        >
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
 
         <TextView
             android:id="@+id/home_main_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="40dp"
             android:fontFamily="@font/roboto_bold"
-            android:text="주간 칼로리"
+            android:text="일일 칼로리"
             android:textColor="@color/black"
             android:textSize="28sp"
             android:textStyle="bold" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:gravity="center">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:gravity="center">-->
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="70dp"
-                android:layout_marginEnd="20dp"
-                android:layout_weight="1"
-                android:text="주간"
-                android:textColor="@color/white" />
+<!--            <Button-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="70dp"-->
+<!--                android:layout_marginEnd="20dp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:text="주간"-->
+<!--                android:textColor="@color/white" />-->
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="70dp"
-                android:layout_weight="1"
-                android:background="@color/white"
-                android:text="금일" />
-        </LinearLayout>
+<!--            <androidx.appcompat.widget.AppCompatButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="20dp"-->
+<!--                android:layout_marginEnd="70dp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:background="@color/white"-->
+<!--                android:text="금일" />-->
+<!--        </LinearLayout>-->
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20dp"
+            >
 
             <com.hookedonplay.decoviewlib.DecoView
                 app:layout_constraintTop_toTopOf="parent"
@@ -61,7 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
-                android:text="5250 kcal"
+                android:text="1250 kcal"
                 android:id="@+id/home_content_currentcalory_tv"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -75,7 +84,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/home_content_currentcalory_tv"
                 app:layout_constraintEnd_toEndOf="@id/home_content_currentcalory_tv"
-                android:text="12520kcal / week"
+                android:text="2520kcal / week"
                 android:id="@+id/home_content_totalcalory_tv"
                 android:textStyle="bold"
                 android:textSize="12sp"
@@ -129,11 +138,10 @@
                 android:textSize="12sp"
                 android:text="1250g/7514g"/>
         </LinearLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_marginHorizontal="40dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:orientation="vertical"
             android:gravity="right"
             android:layout_height="wrap_content">
@@ -179,7 +187,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_marginHorizontal="40dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:orientation="vertical"
             android:gravity="right"
             android:layout_height="wrap_content">
@@ -225,7 +233,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_marginHorizontal="40dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:orientation="vertical"
             android:gravity="right"
             android:layout_height="wrap_content">
@@ -271,7 +279,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_marginHorizontal="40dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:orientation="vertical"
             android:gravity="right"
             android:layout_height="wrap_content">
@@ -316,4 +324,6 @@
         </LinearLayout>
 
     </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
 </layout>

@@ -1,4 +1,4 @@
-package com.alife.alife_medifood_android.ui.main.calendar
+package com.alife.alife_medifood_android.ui.calendar
 
 import com.alife.alife_medifood_android.R
 import com.alife.alife_medifood_android.data.Food

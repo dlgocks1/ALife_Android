@@ -14,5 +14,6 @@
     <color name="gray">#806F7885</color>
     <color name="checkboxColor">#FF03DAC5</color>
     <color name="checkboxColor_16">#1603DAC5</color>
+    <color name="blue">#1A94FF</color>
 
 </resources>

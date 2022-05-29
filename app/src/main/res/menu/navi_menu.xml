@@ -13,6 +13,12 @@
         android:enabled="true"
     />
     <item
+        android:id="@+id/fragment_shopping"
+        android:icon="@drawable/bottomnavi_shopping_selector"
+        android:title="쇼핑"
+        android:enabled="true"
+        />
+    <item
         android:id="@+id/fragment_mypage"
         android:icon="@drawable/bottomnavi_mypage_selector"
         android:title="마이페이지"

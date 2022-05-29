@@ -28,8 +28,8 @@ abstract class BaseFragment<T : ViewDataBinding>(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initView()
         initViewModel()
+        initView()
         initListener()
         afterViewCreated()
         Log.d("BaseActivity : ${_binding}","OnCreate")

@@ -1,4 +1,4 @@
-package com.alife.alife_medifood_android.ui.main.home
+package com.alife.alife_medifood_android.ui.home
 
 import android.graphics.Color
 import android.graphics.drawable.Drawable
@@ -30,7 +30,7 @@ class FragmentHomeCalories : BaseFragment<FragmentHomeCaloriesBinding>(R.layout.
 //            .setDelay(1000)
 //            .setDuration(2000)
 //            .build())
-        binding.homeContentView.addEvent(DecoEvent.Builder(28f)
+        binding.homeContentView.addEvent(DecoEvent.Builder(58f)
             .setIndex(series1Index)
             .build())
     }
