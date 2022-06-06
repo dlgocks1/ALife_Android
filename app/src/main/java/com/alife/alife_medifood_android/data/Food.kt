@@ -5,5 +5,5 @@ data class Food(
     val kcal : String,
     val img : Int,
     val price : Int = 0,
-
+    val weight : Int = 0,
 )

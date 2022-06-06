@@ -21,14 +21,19 @@
                 android:layout_marginTop="30dp"
                 android:background="@drawable/calendar_round_back">
 
-                <TextView
+                <EditText
                     android:id="@+id/shopping_search_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="20dp"
                     android:paddingVertical="8dp"
-                    android:text="검색한 내용"
+                    android:textColor="@color/black_80"
                     android:textSize="17sp"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:imeOptions="actionDone"
+                    android:maxLength="20"
+                    android:background="@android:color/transparent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -131,6 +136,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
+                android:paddingBottom="20dp"
                 android:layout_marginTop="40dp">
 
                 <LinearLayout

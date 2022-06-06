@@ -19,6 +19,7 @@
         android:theme="@style/Theme.Alife_Medifood_Android">
         <activity
             android:name="com.alife.alife_medifood_android.ui.main.MainActivity"
+            android:windowSoftInputMode="adjustPan"
             android:exported="true">
 
         </activity>

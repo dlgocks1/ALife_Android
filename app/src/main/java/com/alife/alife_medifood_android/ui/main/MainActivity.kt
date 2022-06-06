@@ -19,10 +19,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         binding.lifecycleOwner = this
         binding.mainViewModel = mainViewModel
 
-        // 식단을 추가 했을 때
-        if(intent.hasExtra("isMakeDiet")){
-            mainViewModel.updatedietmk(true)
-        }
+
 
         navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
@@ -38,6 +35,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         binding.mainBottomNavi.itemIconTintList = null
         binding.navHostFragment.isSaveEnabled = false
 
+        // 식단을 추가 했을 때
+        if(intent.hasExtra("isMakeDiet")){
+            mainViewModel.updatedietmk(true)
+            binding.mainBottomNavi.selectedItemId = R.id.fragment_shopping
+        }
     }
 
 }

@@ -43,6 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="비건"
+            android:textColor="@drawable/selector_checkbox_signin_text"
             android:gravity="center"
             android:button="@android:color/transparent"
             android:background="@drawable/selector_checkbox_signin"
@@ -59,6 +60,7 @@
             android:background="@drawable/selector_checkbox_signin"
             android:id="@+id/login_signup_foodmanagement_cb2"
             android:layout_marginBottom="10dp"
+            android:textColor="@drawable/selector_checkbox_signin_text"
             />
 
         <CheckBox
@@ -68,6 +70,7 @@
             android:gravity="center"
             android:button="@android:color/transparent"
             android:background="@drawable/selector_checkbox_signin"
+            android:textColor="@drawable/selector_checkbox_signin_text"
             android:id="@+id/login_signup_foodmanagement_cb3"
             android:layout_marginBottom="10dp"
             />
@@ -80,6 +83,7 @@
             android:button="@android:color/transparent"
             android:background="@drawable/selector_checkbox_signin"
             android:id="@+id/login_signup_foodmanagement_cb4"
+            android:textColor="@drawable/selector_checkbox_signin_text"
             android:layout_marginBottom="10dp"
             />
 
@@ -88,6 +92,7 @@
             android:layout_height="40dp"
             android:text="페스코 베지테리언"
             android:gravity="center"
+            android:textColor="@drawable/selector_checkbox_signin_text"
             android:button="@android:color/transparent"
             android:background="@drawable/selector_checkbox_signin"
             android:layout_marginBottom="10dp"
@@ -97,6 +102,7 @@
             android:layout_height="40dp"
             android:text="플로 베지테리언"
             android:gravity="center"
+            android:textColor="@drawable/selector_checkbox_signin_text"
             android:button="@android:color/transparent"
             android:background="@drawable/selector_checkbox_signin"
             android:layout_marginBottom="10dp"
@@ -104,6 +110,7 @@
         <CheckBox
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:textColor="@drawable/selector_checkbox_signin_text"
             android:text="플렉시 베지테리언"
             android:gravity="center"
             android:button="@android:color/transparent"
@@ -115,6 +122,7 @@
             android:layout_height="40dp"
             android:text="상관없음"
             android:layout_marginTop="10dp"
+            android:textColor="@drawable/selector_checkbox_signin_text"
             android:gravity="center"
             android:button="@android:color/transparent"
             android:background="@drawable/selector_checkbox_signin"

@@ -16,7 +16,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
         shoppingViewModel = ViewModelProvider(requireActivity()).get(ShoppingViewModel::class.java)
         binding.lifecycleOwner=this
         shoppingViewModel.searchStr.observe(this,{
-            binding.shoppingSearchTv.text= it
+            binding.shoppingSearchTv.setText(it)
         })
     }
 

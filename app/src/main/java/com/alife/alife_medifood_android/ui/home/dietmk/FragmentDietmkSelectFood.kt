@@ -16,6 +16,8 @@ class FragmentDietmkSelectFood : BaseFragment<FragmentDietmkSelectFoodBinding>(R
             Food("순두부 국","253kcal",R.drawable.img_dummy_food,5000),
             Food("순두부 국","253kcal",R.drawable.img_dummy_food,5000)
         ))
+
+
         binding.dietmkFoodRv.adapter = dietmkFoodListAdapter
         binding.dietmkFoodRv2.adapter = dietmkFoodListAdapter
 

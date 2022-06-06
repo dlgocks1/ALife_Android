@@ -16,6 +16,7 @@ class DietmkActivity : BaseActivity<ActivityDietmkBinding>(R.layout.activity_die
 
     private lateinit var dietmkViewModel: DietmkViewModel
     private var backKeyPressedTime: Long = 0
+    private val TOTAL_DIETMAKE_PAGE_NUM = 2
 
     override fun initView() {
         binding.lifecycleOwner = this
@@ -28,11 +29,12 @@ class DietmkActivity : BaseActivity<ActivityDietmkBinding>(R.layout.activity_die
     }
 
     class DietmkPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
-        override fun getItemCount(): Int = 2
+        override fun getItemCount(): Int = 3
         override fun createFragment(position: Int): Fragment {
             return when (position) {
                 0 -> FragmentDietmkBudget()
                 1 -> FragmentDietmkSelectFood()
+                2 -> FragmentDietmkShoppingCart()
                 else -> FragmentDietmkFoodfavor()
             }
         }
@@ -59,7 +61,7 @@ class DietmkActivity : BaseActivity<ActivityDietmkBinding>(R.layout.activity_die
     }
 
     fun nextPage() {
-        if (binding.dietdayContainer.currentItem != 1) {
+        if (binding.dietdayContainer.currentItem != TOTAL_DIETMAKE_PAGE_NUM) {
             binding.dietdayContainer.currentItem = binding.dietdayContainer.currentItem.plus(1)
         }else{
             val intent = Intent(this, MainActivity::class.java)
