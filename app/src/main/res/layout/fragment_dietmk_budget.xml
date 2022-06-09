@@ -40,6 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
+                android:id="@+id/dietmk_5000bt"
                 android:text="+5천"
                 android:textColor="@color/gray" />
 
@@ -47,6 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
+                android:id="@+id/dietmk_10000bt"
                 android:text="+1만"
                 android:textColor="@color/gray" />
 
@@ -54,6 +56,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
+                android:id="@+id/dietmk_50000bt"
                 android:text="+5만"
                 android:textColor="@color/gray" />
 
@@ -61,6 +64,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
+                android:id="@+id/dietmk_100000bt"
                 android:text="+10만"
                 android:textColor="@color/gray" />
         </LinearLayout>

@@ -19,8 +19,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         binding.lifecycleOwner = this
         binding.mainViewModel = mainViewModel
 
-
-
         navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController: NavController = navHostFragment.findNavController()
@@ -38,8 +36,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         // 식단을 추가 했을 때
         if(intent.hasExtra("isMakeDiet")){
             mainViewModel.updatedietmk(true)
-            binding.mainBottomNavi.selectedItemId = R.id.fragment_shopping
+            binding.mainBottomNavi.selectedItemId = R.id.fragment_home
         }
+
     }
 
 }

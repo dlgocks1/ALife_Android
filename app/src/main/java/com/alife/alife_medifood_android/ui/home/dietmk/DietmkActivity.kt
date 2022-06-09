@@ -1,6 +1,7 @@
 package com.alife.alife_medifood_android.ui.home.dietmk
 
 import android.content.Intent
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -11,6 +12,7 @@ import com.alife.alife_medifood_android.R
 import com.alife.alife_medifood_android.databinding.ActivityDietmkBinding
 import com.alife.alife_medifood_android.ui.BaseActivity
 import com.alife.alife_medifood_android.ui.main.MainActivity
+import com.alife.alife_medifood_android.ui.userInfomk.FragmentSignupFoodfavor
 
 class DietmkActivity : BaseActivity<ActivityDietmkBinding>(R.layout.activity_dietmk) {
 
@@ -26,16 +28,19 @@ class DietmkActivity : BaseActivity<ActivityDietmkBinding>(R.layout.activity_die
         binding.dietdayContainer.adapter = dietViewpagerAdpater
         binding.dietmkViewModel = dietmkViewModel
 
+        dietmkViewModel.foodList.observe(this,{
+            Log.d("test",it.toString())
+        })
     }
 
     class DietmkPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
-        override fun getItemCount(): Int = 3
+        override fun getItemCount(): Int = 2
         override fun createFragment(position: Int): Fragment {
             return when (position) {
                 0 -> FragmentDietmkBudget()
                 1 -> FragmentDietmkSelectFood()
-                2 -> FragmentDietmkShoppingCart()
-                else -> FragmentDietmkFoodfavor()
+//                2 -> ActivityDietmkShoppingCart()
+                else -> FragmentSignupFoodfavor()
             }
         }
     }

@@ -17,7 +17,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-
                 android:orientation="horizontal">
 
             <TextView
@@ -45,6 +44,7 @@
                     android:layout_width="27dp"
                     android:layout_height="27dp"
                     android:layout_gravity="center"
+                    android:id="@+id/calendar_diet_setting"
                     android:src="@drawable/icon_baseline_settings_24"
                     />
 
@@ -54,6 +54,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="May"
+                android:id="@+id/calendar_month_tv"
                 android:textColor="@color/black"
                 android:fontFamily="@font/roboto_bold"
                 android:textSize="22sp"
@@ -79,6 +80,7 @@
                         android:id="@+id/calendar_radiobt1"
                         android:fontFamily="@font/roboto_bold"
                         android:gravity="center"
+                        android:textAlignment="center"
                         android:paddingHorizontal="5dp"
                         android:paddingVertical="15dp"
                         android:text="Today \n 11"
@@ -89,6 +91,23 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginEnd="20dp"
+                        android:background="@drawable/selector_calenar_day"
+                        android:button="@null"
+                        android:id="@+id/calendar_radiobt2"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/roboto_bold"
+                        android:gravity="center"
+                        android:paddingHorizontal="5dp"
+                        android:paddingVertical="15dp"
+                        android:text="Today \n 11"
+                        android:textColor="@color/selector_calendar_text" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="20dp"
+                        android:id="@+id/calendar_radiobt3"
                         android:background="@drawable/selector_calenar_day"
                         android:button="@null"
                         android:fontFamily="@font/roboto_bold"
@@ -104,6 +123,22 @@
                         android:layout_gravity="center"
                         android:layout_marginEnd="20dp"
                         android:background="@drawable/selector_calenar_day"
+                        android:id="@+id/calendar_radiobt4"
+                        android:button="@null"
+                        android:fontFamily="@font/roboto_bold"
+                        android:gravity="center"
+                        android:paddingHorizontal="5dp"
+                        android:paddingVertical="15dp"
+                        android:text="Today \n 11"
+                        android:textColor="@color/selector_calendar_text" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="20dp"
+                        android:background="@drawable/selector_calenar_day"
+                        android:id="@+id/calendar_radiobt5"
                         android:button="@null"
                         android:fontFamily="@font/roboto_bold"
                         android:gravity="center"
@@ -119,6 +154,7 @@
                         android:layout_marginEnd="20dp"
                         android:background="@drawable/selector_calenar_day"
                         android:button="@null"
+                        android:id="@+id/calendar_radiobt6"
                         android:fontFamily="@font/roboto_bold"
                         android:gravity="center"
                         android:paddingHorizontal="5dp"
@@ -133,20 +169,7 @@
                         android:layout_marginEnd="20dp"
                         android:background="@drawable/selector_calenar_day"
                         android:button="@null"
-                        android:fontFamily="@font/roboto_bold"
-                        android:gravity="center"
-                        android:paddingHorizontal="5dp"
-                        android:paddingVertical="15dp"
-                        android:text="Today \n 11"
-                        android:textColor="@color/selector_calendar_text" />
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="20dp"
-                        android:background="@drawable/selector_calenar_day"
-                        android:button="@null"
+                        android:id="@+id/calendar_radiobt7"
                         android:fontFamily="@font/roboto_bold"
                         android:gravity="center"
                         android:paddingHorizontal="5dp"
@@ -156,125 +179,225 @@
                 </RadioGroup>
             </HorizontalScrollView>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/font_roboto"
-                android:text="아침"
-                android:textColor="@color/black_80"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/calendar_round_back"
-                android:paddingHorizontal="10dp"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
+                android:id="@+id/calendar_diet_container"
+                android:visibility="gone"
                 >
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/calendar_morning_rv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginVertical="10dp"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Total 520kcal"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
+                    android:layout_marginTop="20dp"
                     android:fontFamily="@font/font_roboto"
-                    android:layout_marginStart="10dp"
-                    />
-                    <View
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
-                    <ImageView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:src="@drawable/icon_backarrow"
-                        android:layout_marginEnd="10dp"
-                        android:layout_gravity="center"
-                        android:rotation="180"
-                        />
-                </LinearLayout>
+                    android:text="아침"
+                    android:textColor="@color/black_80"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/font_roboto"
-                android:text="점심"
-                android:textColor="@color/black_80"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/calendar_round_back"
-                android:paddingHorizontal="10dp"
-                android:orientation="vertical"
-                >
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/calendar_lunch_rv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="10dp"
-                    android:layout_marginStart="10dp"
-
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    />
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/calendar_round_back"
+                    android:paddingHorizontal="10dp"
+                    android:orientation="vertical"
                     >
 
-
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/calendar_morning_rv"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Total 520kcal"
-                        android:textColor="@color/black"
-                        android:textSize="15sp"
-                        android:fontFamily="@font/font_roboto"
                         android:layout_marginStart="10dp"
+                        android:layout_marginVertical="10dp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         />
-                    <View
-                        android:layout_width="wrap_content"
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
-                    <ImageView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:src="@drawable/icon_backarrow"
-                        android:layout_marginEnd="10dp"
-                        android:layout_gravity="center"
-                        android:rotation="180"
-                        />
+                        android:layout_marginBottom="20dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Total 520kcal"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:fontFamily="@font/font_roboto"
+                            android:layout_marginStart="10dp"
+                            />
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"/>
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/icon_backarrow"
+                            android:layout_marginEnd="10dp"
+                            android:layout_gravity="center"
+                            android:rotation="180"
+                            />
+                    </LinearLayout>
+
                 </LinearLayout>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/font_roboto"
+                    android:text="점심"
+                    android:textColor="@color/black_80"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/calendar_round_back"
+                    android:paddingHorizontal="10dp"
+                    android:orientation="vertical"
+                    >
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/calendar_lunch_rv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="10dp"
+                        android:layout_marginStart="10dp"
+
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+
+                        >
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Total 520kcal"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:fontFamily="@font/font_roboto"
+                            android:layout_marginStart="10dp"
+                            />
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"/>
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/icon_backarrow"
+                            android:layout_marginEnd="10dp"
+                            android:layout_gravity="center"
+                            android:rotation="180"
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/font_roboto"
+                    android:text="저녁"
+                    android:textColor="@color/black_80"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/calendar_round_back"
+                    android:paddingHorizontal="10dp"
+                    android:orientation="vertical"
+                    >
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/calendar_dinner_rv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="10dp"
+                        android:layout_marginStart="10dp"
+
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+
+                        >
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Total 520kcal"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:fontFamily="@font/font_roboto"
+                            android:layout_marginStart="10dp"
+                            />
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"/>
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/icon_backarrow"
+                            android:layout_marginEnd="10dp"
+                            android:layout_gravity="center"
+                            android:rotation="180"
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/calendar_diet_empty_container"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="등록된 식단이 없어요!"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:textSize="24sp"
+                    android:fontFamily="@font/roboto_bold"
+                    />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="식단 등록하러 가기"
+                    android:layout_gravity="center"
+                    android:id="@+id/calendar_diet_makebt"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    />
+
+            </LinearLayout>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

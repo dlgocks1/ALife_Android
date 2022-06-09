@@ -2,13 +2,6 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     >
-
-    <data>
-        <variable
-            name="signupViewModel"
-            type="com.alife.alife_medifood_android.ui.start.signup.SignupViewModel" />
-    </data>
-
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -26,7 +19,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="좋아하는 음식 카테고리를 선택하세요."
+        android:text="알레르기가 있는 식품을 선택하세요."
         android:id="@+id/login_signup_foodcategory_tv"
         android:layout_marginTop="40dp"
         android:textStyle="bold"
@@ -42,7 +35,7 @@
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="한식"
+                android:text="우유"
                 android:id="@+id/login_signup_foodcategory_cb1"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
@@ -55,56 +48,14 @@
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="중식"
+                android:text="토마토"
                 android:id="@+id/login_signup_foodcategory_cb2"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:background="@drawable/selector_checkbox_signin"
                 android:button="@android:color/transparent"
                 android:textAlignment="center"
-                android:layout_marginEnd="20dp"
                 android:layout_marginStart="20dp"
-                />
-
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="일식"
-                android:id="@+id/login_signup_foodcategory_cb3"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                android:background="@drawable/selector_checkbox_signin"
-                android:button="@android:color/transparent"
-                android:textAlignment="center"
-                />
-
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="양식"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                android:layout_marginTop="20dp"
-                android:id="@+id/login_signup_foodcategory_cb4"
-                android:background="@drawable/selector_checkbox_signin"
-                android:button="@android:color/transparent"
-                android:textAlignment="center"
-                />
-
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="분식"
-                android:layout_columnWeight="1"
-                android:background="@drawable/selector_checkbox_signin"
-                android:button="@android:color/transparent"
-                android:textAlignment="center"
-
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_rowWeight="1"
-                android:id="@+id/login_signup_foodcategory_cb5"
                 />
 
 

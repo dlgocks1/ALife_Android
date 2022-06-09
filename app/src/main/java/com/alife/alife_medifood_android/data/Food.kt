@@ -6,4 +6,8 @@ data class Food(
     val img : Int,
     val price : Int = 0,
     val weight : Int = 0,
-)
+    val carbohydrate : Int = 0,
+    val protein : Int = 0,
+    val fat : Int = 0,
+
+    )

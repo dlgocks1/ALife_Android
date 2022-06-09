@@ -38,6 +38,8 @@
         android:layout_marginTop="10dp"
         android:id="@+id/item_dietmk_food_name_tv"
         android:ellipsize="end"
+        android:singleLine="true"
+        app:layout_constraintEnd_toStartOf="@id/item_dietmk_food_price_tv"
         android:layout_marginStart="20dp"
         app:layout_constraintStart_toEndOf="@+id/item_dietmk_cardview"
         app:layout_constraintTop_toTopOf="parent"

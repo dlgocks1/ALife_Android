@@ -14,6 +14,8 @@ class FragmentDietmkBudget : BaseFragment<FragmentDietmkBudgetBinding>(R.layout.
 
     private val decimalFormat: DecimalFormat = DecimalFormat("#,###")
     private var result = ""
+
+
     private val dietmkViewModel: DietmkViewModel by lazy {
         ViewModelProvider(requireActivity(), object : ViewModelProvider.Factory {
             override fun <T : ViewModel?> create(modelClass: Class<T>): T =
@@ -26,6 +28,7 @@ class FragmentDietmkBudget : BaseFragment<FragmentDietmkBudgetBinding>(R.layout.
         binding.dietmkViewModel = dietmkViewModel
         binding.dietmkNextBt.setOnClickListener {
             dietmkViewModel.updatedietmk(true)
+            dietmkViewModel.updatebudget(binding.dietmkEdittext.text.toString().replace(",",""))
             (activity as DietmkActivity).nextPage()
         }
 
@@ -42,6 +45,67 @@ class FragmentDietmkBudget : BaseFragment<FragmentDietmkBudgetBinding>(R.layout.
 
             override fun afterTextChanged(editable: Editable) {}
         }
+
+        binding.dietmk5000bt.setOnClickListener {
+            if(binding.dietmkEdittext.text.isBlank()){
+                result = decimalFormat.format("5000".replace(",".toRegex(), "")
+                    .toDouble())
+                binding.dietmkEdittext.setText(result)
+                binding.dietmkEdittext.setSelection(result.length)
+            }else{
+                var number = binding.dietmkEdittext.text.toString().replace(",","").toInt() + 5000
+                result = decimalFormat.format(number.toString().replace(",".toRegex(), "")
+                    .toDouble())
+                binding.dietmkEdittext.setText(result)
+                binding.dietmkEdittext.setSelection(result.length)
+            }
+        }
+
+        binding.dietmk10000bt.setOnClickListener {
+            if(binding.dietmkEdittext.text.isBlank()){
+                result = decimalFormat.format("10000".replace(",".toRegex(), "")
+                    .toDouble())
+                binding.dietmkEdittext.setText(result)
+                binding.dietmkEdittext.setSelection(result.length)
+            }else{
+                var number = binding.dietmkEdittext.text.toString().replace(",","").toInt() + 10000
+                result = decimalFormat.format(number.toString().replace(",".toRegex(), "")
+                    .toDouble())
+                binding.dietmkEdittext.setText(result)
+                binding.dietmkEdittext.setSelection(result.length)
+            }
+        }
+
+        binding.dietmk100000bt.setOnClickListener {
+            if(binding.dietmkEdittext.text.isBlank()){
+                result = decimalFormat.format("100000".replace(",".toRegex(), "")
+                    .toDouble())
+                binding.dietmkEdittext.setText(result)
+                binding.dietmkEdittext.setSelection(result.length)
+            }else{
+                var number = binding.dietmkEdittext.text.toString().replace(",","").toInt() + 100000
+                result = decimalFormat.format(number.toString().replace(",".toRegex(), "")
+                    .toDouble())
+                binding.dietmkEdittext.setText(result)
+                binding.dietmkEdittext.setSelection(result.length)
+            }
+        }
+
+        binding.dietmk50000bt.setOnClickListener {
+            if(binding.dietmkEdittext.text.isBlank()){
+                result = decimalFormat.format("50000".replace(",".toRegex(), "")
+                    .toDouble())
+                binding.dietmkEdittext.setText(result)
+                binding.dietmkEdittext.setSelection(result.length)
+            }else{
+                var number = binding.dietmkEdittext.text.toString().replace(",","").toInt() + 50000
+                result = decimalFormat.format(number.toString().replace(",".toRegex(), "")
+                    .toDouble())
+                binding.dietmkEdittext.setText(result)
+                binding.dietmkEdittext.setSelection(result.length)
+            }
+        }
+
         binding.dietmkEdittext.addTextChangedListener(watcher)
 
     }

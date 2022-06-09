@@ -26,14 +26,17 @@
         <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/drawable/shape_checkbox_signin_unchecked.xml" value="0.2546875" />
         <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/font/font_roboto.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/activity_dietmk.xml" value="0.2046875" />
+        <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/activity_login.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/activity_shoppingcart.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/activity_signup.xml" value="0.26856884057971014" />
         <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/activity_splash.xml" value="0.17806484295845998" />
+        <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/activity_userinfo.xml" value="0.24583333333333332" />
         <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/fragment_calendar.xml" value="0.25" />
         <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/fragment_dietmk_budget.xml" value="0.22395833333333334" />
         <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/fragment_dietmk_day.xml" value="0.2046875" />
         <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/fragment_dietmk_foodfavor.xml" value="0.22395833333333334" />
-        <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/fragment_dietmk_select_food.xml" value="0.2" />
+        <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/fragment_dietmk_select_food.xml" value="0.18" />
         <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/fragment_dietmk_shopping_cart.xml" value="0.1296875" />
         <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/fragment_home.xml" value="0.23854166666666668" />
         <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/fragment_home_calories.xml" value="0.25" />
@@ -47,7 +50,10 @@
         <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/fragment_shoppingcart.xml" value="0.2921195652173913" />
         <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/fragment_signup_body.xml" value="0.25" />
         <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/fragment_signup_email.xml" value="0.26856884057971014" />
+        <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/fragment_signup_exercise.xml" value="0.21822916666666667" />
+        <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/fragment_signup_foodallergy.xml" value="0.24583333333333332" />
         <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/fragment_signup_foodcategory.xml" value="0.26856884057971014" />
+        <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/fragment_signup_foodfavor.xml" value="0.24583333333333332" />
         <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/fragment_signup_foodmanagement.xml" value="0.25" />
         <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/item_calendar_foodlist.xml" value="0.2046875" />
         <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/item_dietmk_foodlist.xml" value="0.25" />

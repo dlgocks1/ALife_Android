@@ -1,21 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.core.widget.NestedScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:visibility="gone"
+            android:id="@+id/dietmk_loading_iv"
+            android:layout_gravity="center"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:id="@+id/dietmk_background_layout"
+            android:visibility="visible"
+            >
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -24,6 +32,7 @@
                 android:layout_marginTop="30dp">
 
                 <TextView
+                    android:id="@+id/dietmk_day_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_bold"
@@ -49,7 +58,7 @@
                 android:layout_marginTop="20dp"
                 android:orientation="vertical">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -57,35 +66,240 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_bold"
+                        android:id="@+id/dietmk_nowbudget_tv"
                         android:text="남은예산"
                         android:textColor="@color/black"
                         android:textSize="19sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
                         android:textStyle="bold" />
 
                     <ProgressBar
-                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:id="@+id/dietmk_price_progressbar"
+                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginStart="20dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         android:layout_marginEnd="20dp"
-                        android:layout_weight="1"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginStart="100dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         android:background="@drawable/color_gradient"
                         android:max="100"
                         android:progress="70"
                         android:progressDrawable="@drawable/home_progressbar_custom" />
-                </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
                 <TextView
+                    android:id="@+id/dietmk_foodprogressbar_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="12sp"
                     android:layout_gravity="right"
                     android:layout_marginEnd="20dp"
-                    android:text="2,500/5,000"/>
+                    android:text="2,500/5,000"
+                    android:textSize="12sp" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="칼로리"
+                        android:textColor="@color/black"
+                        android:textSize="19sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:textStyle="bold" />
+
+                    <ProgressBar
+                        android:id="@+id/dietmk_kcal_progressbar"
+                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginEnd="20dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginStart="100dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:background="@drawable/color_gradient"
+                        android:max="100"
+                        android:progress="70"
+                        android:progressDrawable="@drawable/home_progressbar_custom3" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/dietmk_kcalprogressbar_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginEnd="20dp"
+                    android:text="2,500/5,000"
+                    android:textSize="12sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/dietmk_morinfo_layout"
+                    android:visibility="gone">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_bold"
+                            android:text="지방"
+                            android:textColor="@color/black"
+                            android:textSize="19sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:textStyle="bold" />
+
+                        <ProgressBar
+                            android:id="@+id/dietmk_fat_progressbar"
+                            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginEnd="20dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_marginStart="100dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:background="@drawable/color_gradient"
+                            android:max="100"
+                            android:progress="70"
+                            android:progressDrawable="@drawable/home_progressbar_custom2" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/dietmk_fatprogressbar_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginEnd="20dp"
+                        android:text="2,500/2,50"
+                        android:textSize="12sp" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_bold"
+                            android:text="탄수화물"
+                            android:textColor="@color/black"
+                            android:textSize="19sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:textStyle="bold" />
+
+                        <ProgressBar
+                            android:id="@+id/dietmk_carbohydrate_progressbar"
+                            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginEnd="20dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_marginStart="100dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:background="@drawable/color_gradient"
+                            android:max="100"
+                            android:progress="70"
+                            android:progressDrawable="@drawable/home_progressbar_custom4" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/dietmk_carbohydrateprogressbar_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginEnd="20dp"
+                        android:text="2,500/2,50"
+                        android:textSize="12sp" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_bold"
+                            android:text="단백질"
+                            android:textColor="@color/black"
+                            android:textSize="19sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:textStyle="bold" />
+
+                        <ProgressBar
+                            android:id="@+id/dietmk_protein_progressbar"
+                            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginEnd="20dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_marginStart="100dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:background="@drawable/color_gradient"
+                            android:max="100"
+                            android:progress="70"
+                            android:progressDrawable="@drawable/home_progressbar_custom3" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/dietmk_proteinprogressbar_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginEnd="20dp"
+                        android:text="2,500/2,50"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="15dp"
+                    android:layout_gravity="center"
+                    android:id="@+id/dietmk_moreinfo_iv"
+                    android:src="@drawable/baseline_arrow_forward_ios_black_down_24"/>
 
             </LinearLayout>
 
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -106,35 +320,36 @@
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="10dp"
                         android:layout_marginStart="10dp"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        />
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
                 </LinearLayout>
+
+
             </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="넣을수록 이득인 묶음 상품"
-                android:fontFamily="@font/roboto_bold"
-                android:textColor="@color/black"
                 android:layout_marginStart="20dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="넣을수록 이득인 묶음 상품"
+                android:textColor="@color/black"
                 android:textSize="19sp"
                 android:textStyle="bold" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="자연실록 한끼 세트"
-                android:fontFamily="@font/roboto_bold"
                 android:layout_marginStart="20dp"
-                android:textSize="15sp"
                 android:layout_marginTop="5dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="자연실록 한끼 세트"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingHorizontal="20dp"
-                >
+                android:paddingHorizontal="20dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -151,56 +366,56 @@
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="10dp"
                         android:layout_marginStart="10dp"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        />
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
                 </LinearLayout>
             </LinearLayout>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="다른 제품 선택하기"
-                android:textSize="15sp"
-                android:paddingHorizontal="40dp"
-                android:fontFamily="@font/roboto_bold"
-                android:background="@drawable/calendar_round_back"
-                android:textColor="@color/white"
-                android:layout_marginBottom="20dp"
                 android:layout_gravity="center"
-                />
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/calendar_round_back"
+                android:fontFamily="@font/roboto_bold"
+                android:paddingHorizontal="40dp"
+                android:text="다른 제품 선택하기"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+             </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+            <LinearLayout
+                android:id="@+id/dietmk_next_la"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/baseColor"
+                android:paddingVertical="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:id="@+id/dietmk_total_tv"
+                    android:fontFamily="@font/font_roboto"
+                    android:text="Total 2,500"
+                    android:textColor="@color/white"
+                    android:textSize="19sp" />
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/baseline_arrow_forward_ios_white_24" />
+            </LinearLayout>
+
         </LinearLayout>
 
-    </androidx.core.widget.NestedScrollView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/baseColor"
-        android:paddingVertical="15dp"
-        android:id="@+id/dietmk_next_la"
-        >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:fontFamily="@font/font_roboto"
-            android:text="Total 2,500"
-            android:textColor="@color/white"
-            android:textSize="19sp" />
-
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_gravity="center"
-            android:layout_marginEnd="10dp"
-            android:src="@drawable/baseline_arrow_forward_ios_white_24" />
     </LinearLayout>
-
-</LinearLayout>
 </layout>

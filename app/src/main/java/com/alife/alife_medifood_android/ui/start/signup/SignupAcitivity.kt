@@ -10,16 +10,21 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
+import com.alife.AlifeApplication
 import com.alife.alife_medifood_android.R
 import com.alife.alife_medifood_android.databinding.ActivitySignupBinding
 import com.alife.alife_medifood_android.ui.BaseActivity
 import com.alife.alife_medifood_android.ui.main.MainActivity
+import com.alife.alife_medifood_android.ui.start.signup.service.*
+import com.alife.alife_medifood_android.ui.userInfomk.FragmentSignupBody
+import com.alife.alife_medifood_android.ui.userInfomk.FragmentSignupFoodcategory
+import com.alife.alife_medifood_android.ui.userInfomk.FragmentSignupFoodmanagement
 
-class SignupAcitivity : BaseActivity<ActivitySignupBinding>(R.layout.activity_signup) {
+class SignupAcitivity : BaseActivity<ActivitySignupBinding>(R.layout.activity_signup), SignupView {
 
     private lateinit var signupViewModel: SignupViewModel
     private var backKeyPressedTime: Long = 0
-
+    private lateinit var signupService : AuthService
     val buttonListener = View.OnClickListener {
         when (it.id) {
             R.id.signup_next_bt -> nextPage()
@@ -40,6 +45,8 @@ class SignupAcitivity : BaseActivity<ActivitySignupBinding>(R.layout.activity_si
         signupViewModel.email.observe(this, Observer {
             Log.d(TAG,it)
         })
+        signupService = AuthService()
+        signupService.setsignupView(this)
     }
 
     override fun initListener() {
@@ -53,7 +60,6 @@ class SignupAcitivity : BaseActivity<ActivitySignupBinding>(R.layout.activity_si
                 signupViewModel.setCurrentPage(position)
             }
         })
-
     }
 
     fun undoPage() {
@@ -71,23 +77,20 @@ class SignupAcitivity : BaseActivity<ActivitySignupBinding>(R.layout.activity_si
     }
 
     fun nextPage() {
-        if (binding.signupVp.currentItem != 3) {
+        if (binding.signupVp.currentItem != 0) {
             binding.signupVp.currentItem = binding.signupVp.currentItem.plus(1)
         }else{
-            val intent = Intent(this, MainActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            intent.putExtra("Email",signupViewModel.email.value.toString())
-            intent.putExtra("Password",signupViewModel.password.value.toString())
-            startActivity(intent)
+            signupService.signup(signupRequest = AuthRequest(signupViewModel.email.value.toString(),
+                signupViewModel.password.value.toString(),signupViewModel.password.value.toString()))
         }
     }
 
     class PagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
-        override fun getItemCount(): Int = 4
+        override fun getItemCount(): Int = 1
         override fun createFragment(position: Int): Fragment {
             return when (position) {
-                0 -> FragmentSignupBody()
-                1 -> FragmentSignupEmail()
+                0 -> FragmentSignupEmail()
+                1 -> FragmentSignupBody()
                 2 -> FragmentSignupFoodcategory()
                 3 -> FragmentSignupFoodmanagement()
                 else -> FragmentSignupFoodcategory()
@@ -109,8 +112,21 @@ class SignupAcitivity : BaseActivity<ActivitySignupBinding>(R.layout.activity_si
         }
     }
 
-
-        companion object {
-            private const val TAG = "SignupAcitivity"
-        }
+    companion object {
+        private const val TAG = "SignupAcitivity"
     }
+
+    override fun onSignupSuccess(user : User) {
+        AlifeApplication.useremail = signupViewModel.email.value.toString()
+        AlifeApplication.password = signupViewModel.password.value.toString()
+        val intent = Intent(this, MainActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        intent.putExtra("Email",signupViewModel.email.value.toString())
+        intent.putExtra("Password",signupViewModel.password.value.toString())
+        startActivity(intent)
+    }
+
+    override fun onSignupFailure(message : String) {
+        Toast.makeText(this,message,Toast.LENGTH_SHORT).show()
+    }
+}

@@ -4,9 +4,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     >
     <data>
-        <variable
-            name="signupViewModel"
-            type="com.alife.alife_medifood_android.ui.start.signup.SignupViewModel" />
+<!--        <variable-->
+<!--            name="signupViewModel"-->
+<!--            type="com.alife.alife_medifood_android.ui.start.signup.SignupViewModel" />-->
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -47,13 +47,23 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:id="@+id/login_signup_body_radioman_bt"
+            android:background="@drawable/selector_checkbox_signin"
+            android:textAlignment="center"
+            android:button="@null"
+            android:layout_marginEnd="20dp"
             android:text="남자"/>
         <RadioButton
             android:layout_width="wrap_content"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:id="@+id/login_signup_body_radiowoman_bt"
             android:text="여자"
+            android:layout_marginStart="20dp"
+            android:textAlignment="center"
+            android:background="@drawable/selector_checkbox_signin"
+            android:button="@null"
             />
     </RadioGroup>
 
@@ -79,16 +89,20 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
             android:layout_weight="1"
-            android:hint="키"
+            android:id="@+id/login_signup_height_tv"
+            android:hint="키(cm)"
             android:gravity="center"
+            android:inputType="number"
             />
         <com.google.android.material.textfield.TextInputEditText
             android:layout_marginHorizontal="10dp"
             android:layout_weight="1"
             android:gravity="center"
+            android:id="@+id/login_signup_weight_tv"
+            android:inputType="number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="체중"
+            android:hint="체중(kg)"
             />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
