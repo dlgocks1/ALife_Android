@@ -2,6 +2,7 @@ package com.alife.alife_medifood_android.ui.calendar.service
 
 import android.util.Log
 import com.alife.AlifeApplication
+import com.alife.alife_medifood_android.getReposit
 import com.alife.alife_medifood_android.ui.start.signup.service.*
 import com.google.gson.Gson
 import okhttp3.Credentials
@@ -19,15 +20,6 @@ class UserDetailService {
     private lateinit var userDetailView: UserDetailView
     private val TAG = "UserDetailView"
     private val gson = Gson()
-
-    fun getReposit(): Retrofit {
-        val retrofit = Retrofit.Builder()
-            .baseUrl("http://218.50.154.150:8080") //
-            .addConverterFactory(ScalarsConverterFactory.create())
-            .addConverterFactory(GsonConverterFactory.create(gson))
-            .build()
-        return retrofit
-    }
 
     fun setuserDetailView(userDetailView: UserDetailView) {
         this.userDetailView = userDetailView

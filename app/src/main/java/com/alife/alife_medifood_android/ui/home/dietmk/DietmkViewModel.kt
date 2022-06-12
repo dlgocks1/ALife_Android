@@ -7,6 +7,15 @@ import com.alife.alife_medifood_android.data.Food
 
 class DietmkViewModel : ViewModel() {
 
+
+    private val _dietKeyword = MutableLiveData<MutableMap<String,String>>()
+    val dietKeyword : LiveData<MutableMap<String,String>>
+        get() = _dietKeyword
+
+    fun updateKeyword(item : MutableMap<String,String>){
+        _dietKeyword.value = item
+    }
+
     private val _dietmk = MutableLiveData<Boolean>()
     val dietmk : LiveData<Boolean>
         get() = _dietmk
@@ -75,6 +84,8 @@ class DietmkViewModel : ViewModel() {
     }
 
     init{
+//        _dietKeyword.value = mutableMapOf(Pair("dumm","123"))
+        _dietKeyword.value = mutableMapOf()
         _foodList.value = ArrayList()
         _nowbudget.value = 0
         _nowcarbo.value = 0

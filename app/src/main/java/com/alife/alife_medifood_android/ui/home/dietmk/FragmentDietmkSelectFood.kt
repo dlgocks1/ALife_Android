@@ -36,18 +36,23 @@ class FragmentDietmkSelectFood : BaseFragment<FragmentDietmkSelectFoodBinding>(R
         dietmkService.setdietmkView(this)
         dietmkViewModel = ViewModelProvider(requireActivity()).get(DietmkViewModel::class.java)
         binding.lifecycleOwner = this
+
+        binding.dietmkLoadingIv.visibility=View.VISIBLE
+        binding.dietmkBackgroundLayout.visibility=View.GONE
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    override fun initView() {
-        dietmkService.getRecFood(dietmkViewModel.budget.value!!.toInt() * 5)
+    override fun onResume() {
+        super.onResume()
+        dietmkService.getRecFood(dietmkViewModel.budget.value!!.toInt() * 5,
+            dietmkViewModel.dietKeyword.value!!
+        )
 
         val current = LocalDateTime.now()
         val formatter = DateTimeFormatter.ofPattern("MM월 dd일")
         binding.dietmkDayTv.setText(current.format(formatter))
 
         binding.dietmkNextLa.setOnClickListener {
-//            (activity as DietmkActivity).nextPage()
             val gson = Gson()
             val intent = Intent(requireActivity(),ActivityDietmkShoppingCart::class.java)
             intent.putExtra("FoodList",gson.toJson(dietmkViewModel.foodList.value))
@@ -94,7 +99,7 @@ class FragmentDietmkSelectFood : BaseFragment<FragmentDietmkSelectFoodBinding>(R
         binding.dietmkBackgroundLayout.visibility=View.VISIBLE
         var foodListforAdapter = mutableListOf<Food>()
         for(i in 0 until Math.min(foodList.size,7)){
-            foodListforAdapter += Food(foodList[i].product_name,foodList[i].calory.toString(),R.drawable.img_dummy_food,foodList[i].price,foodList[i].amount.roundToInt(),foodList[i].carbohydrate.roundToInt()
+            foodListforAdapter += Food(foodList[i].product_name,foodList[i].calory.toString(), foodList[i].product_image,foodList[i].price,foodList[i].amount.roundToInt(),foodList[i].carbohydrate.roundToInt()
             ,foodList[i].protein.roundToInt(),foodList[i].fat.roundToInt())
         }
         val dietmkFoodListAdapter = DietmkFoodListAdapter()
@@ -116,7 +121,6 @@ class FragmentDietmkSelectFood : BaseFragment<FragmentDietmkSelectFoodBinding>(R
                     dietmkViewModel.updatenowcarbo(dietmkViewModel.nowcarbo.value!! - food.carbohydrate)
                     dietmkViewModel.removeFoodList(food)
                 }
-//                Log.d("test",dietmkViewModel.foodList.value.toString())
                 binding.dietmkPriceProgressbar.setProgress(dietmkViewModel.nowbudget.value!!,true)
                 binding.dietmkKcalProgressbar.setProgress(dietmkViewModel.nowkcal.value!!,true)
                 binding.dietmkCarbohydrateProgressbar.setProgress(dietmkViewModel.nowcarbo.value!!,true)

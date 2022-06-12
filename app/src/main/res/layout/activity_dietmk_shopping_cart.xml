@@ -43,6 +43,7 @@
                 android:fontFamily="@font/roboto_bold"
                 android:text="선택 상품 0개"
                 android:textColor="@color/black"
+                android:paddingBottom="10dp"
                 android:textSize="18sp" />
 
             <androidx.core.widget.NestedScrollView
@@ -64,6 +65,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingTop="20dp"
                 android:layout_marginHorizontal="20dp"
                 >
 

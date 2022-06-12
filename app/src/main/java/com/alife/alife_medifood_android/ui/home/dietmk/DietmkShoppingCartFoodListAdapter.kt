@@ -1,15 +1,18 @@
 package com.alife.alife_medifood_android.ui.home.dietmk
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.ImageView
+import android.widget.RadioButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.alife.alife_medifood_android.R
 import com.alife.alife_medifood_android.data.Food
 import com.alife.alife_medifood_android.data.FoodMainList
+import com.bumptech.glide.Glide
 import kotlin.math.roundToInt
 
 class DietmkShoppingCartFoodListAdapter : RecyclerView.Adapter<DietmkShoppingCartFoodListAdapter.Viewholder>() {
@@ -22,7 +25,7 @@ class DietmkShoppingCartFoodListAdapter : RecyclerView.Adapter<DietmkShoppingCar
     }
 
     interface OnClickInterface{
-        fun onItemClick(food: Food, check:Boolean)
+        fun onItemClick(food: Food,time:String, check:Boolean)
     }
 
     fun setOnItemClickListener(listener : OnClickInterface){
@@ -49,21 +52,54 @@ class DietmkShoppingCartFoodListAdapter : RecyclerView.Adapter<DietmkShoppingCar
         private val foodimgIv = itemView.findViewById<ImageView>(R.id.item_shopping_cart_food_iv)
         private val foodweightTv = itemView.findViewById<TextView>(R.id.item_shopping_cart_food_weight_tv)
         private val foodcb = itemView.findViewById<CheckBox>(R.id.item_shopping_cart_foodlist_cb)
+        private val morningbt = itemView.findViewById<RadioButton>(R.id.item_dietmk_shopping_cart_radiobt1)
+        private val lunchbt = itemView.findViewById<RadioButton>(R.id.item_dietmk_shopping_cart_radiobt2)
+        private val dinnerbt = itemView.findViewById<RadioButton>(R.id.item_dietmk_shopping_cart_radiobt3)
 
         fun bind(food: Food) {
+            var time = "morning"
+            var ischecking = false
             foodnameTv.text = food.name
             foodpriceTv.text = "${food.price.toString()}원"
             foodkcalTv.text = "${food.kcal.toFloat().roundToInt()} kcal"
-            foodimgIv.setImageResource(food.img)
+//            foodimgIv.setImageResource(food.img)
+            Glide
+                .with(itemView)
+                .load(food.img)
+                .centerCrop()
+                .placeholder(R.drawable.img_ready)
+                .into(foodimgIv);
             foodweightTv.text = "${food.weight}g"
-
-            foodcb.setOnCheckedChangeListener{ buttonView, isChecked ->
+            morningbt.setOnCheckedChangeListener { buttonView, isChecked ->
                 if(isChecked){
-                    listener?.onItemClick(food,true)
-                }else{
-                    listener?.onItemClick(food,false)
+                    time = "morning"
+                    listener?.onItemClick(food,time,ischecking)
                 }
             }
+            lunchbt.setOnCheckedChangeListener { buttonView, isChecked ->
+                if(isChecked){
+                    time = "lunch"
+                    listener?.onItemClick(food,time,ischecking)
+                }
+            }
+            dinnerbt.setOnCheckedChangeListener { buttonView, isChecked ->
+                if(isChecked){
+                    time = "dinner"
+                    listener?.onItemClick(food,time,ischecking)
+                }
+            }
+            foodcb.setOnCheckedChangeListener{ buttonView, isChecked ->
+                if(isChecked){
+                    ischecking = true
+                    listener?.onItemClick(food,time,ischecking)
+//                    listener?.onItemClick(food,time,true)
+                }else{
+                    ischecking = false
+                    listener?.onItemClick(food,time,ischecking)
+                }
+            }
+
+
         }
     }
 

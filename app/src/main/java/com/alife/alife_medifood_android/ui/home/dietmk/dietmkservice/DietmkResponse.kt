@@ -15,7 +15,7 @@ data class DietmkResponseItem(
     val price: Int,
     val primary_type: String,
     val product_category: Any,
-    val product_image: Any,
+    val product_image: String,
     val product_name: String,
     val protein: Double,
     val sat_fat: Double,

@@ -26,6 +26,7 @@
         <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/drawable/shape_checkbox_signin_unchecked.xml" value="0.2546875" />
         <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/font/font_roboto.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/activity_dietmk.xml" value="0.2046875" />
+        <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/activity_dietmk_shopping_cart.xml" value="0.22291666666666668" />
         <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/activity_login.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/activity_shoppingcart.xml" value="0.36614583333333334" />
@@ -44,7 +45,7 @@
         <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/fragment_mypage.xml" value="0.23854166666666668" />
         <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/fragment_search.xml" value="0.21478463329452852" />
-        <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/fragment_shopping.xml" value="0.25" />
+        <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/fragment_shopping.xml" value="0.1982399258916165" />
         <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/fragment_shopping_cart.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/fragment_shopping_container.xml" value="0.34010416666666665" />
         <entry key="..\:/Users/cksgo/Desktop/ALife_Android/app/src/main/res/layout/fragment_shoppingcart.xml" value="0.2921195652173913" />

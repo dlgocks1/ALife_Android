@@ -141,6 +141,7 @@
                     android:button="@android:color/transparent"
                     android:text="점심"
 
+                    android:id="@+id/item_dietmk_shopping_cart_radiobt2"
                     android:layout_marginVertical="5dp"
                     android:layout_gravity="center"
                     android:textColor="@drawable/selector_checkbox_signin_text"
@@ -151,6 +152,7 @@
                     android:layout_height="wrap_content"
                     android:button="@android:color/transparent"
                     android:layout_marginHorizontal="20dp"
+                    android:id="@+id/item_dietmk_shopping_cart_radiobt3"
                     android:gravity="center"
                     android:layout_marginVertical="5dp"
                     android:layout_gravity="center"

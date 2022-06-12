@@ -1,6 +1,7 @@
 package com.alife.alife_medifood_android.ui.start.signup.service
 
 import android.util.Log
+import com.alife.alife_medifood_android.getReposit
 import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
@@ -15,14 +16,6 @@ class AuthService {
     private val TAG = "signupService"
     private val gson = Gson()
 
-    fun getReposit(): Retrofit {
-        val retrofit = Retrofit.Builder()
-            .baseUrl("http://218.50.154.150:8080") //
-            .addConverterFactory(ScalarsConverterFactory.create())
-            .addConverterFactory(GsonConverterFactory.create(gson))
-            .build()
-        return retrofit
-    }
 
     fun setloginView(loginView: LoginView) {
         this.loginView = loginView
@@ -54,11 +47,10 @@ class AuthService {
 
     fun login(authLoginRequest : AuthLoginRequest){
         val service = getReposit().create(AuthInterface::class.java)
+        loginView.onLoginLoading()
         service.login(authLoginRequest).enqueue(object :
             Callback<signupReponse> {
             override fun onResponse(call: Call<signupReponse>, response: Response<signupReponse>) {
-                Log.d(TAG,response.toString())
-                Log.d(TAG,response.body().toString())
                 when(response.code()){
                     200 -> {
                         val resp = response.body()

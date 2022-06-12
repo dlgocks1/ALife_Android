@@ -17,31 +17,27 @@ import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 
 import android.widget.TextView
+import android.widget.Toast
+import com.alife.alife_medifood_android.ui.home.dietmk.dietmkservice.DietmkResponseItem
+import com.alife.alife_medifood_android.ui.shopping.service.ShoppingService
+import com.alife.alife_medifood_android.ui.start.signup.service.ShoppingView
+import java.lang.Integer.min
 
 
-class FragmentShopping : BaseFragment<FragmentShoppingBinding>(R.layout.fragment_shopping){
+class FragmentShopping : BaseFragment<FragmentShoppingBinding>(R.layout.fragment_shopping),ShoppingView{
     private lateinit var shoppingViewModel: ShoppingViewModel
     private lateinit var searchText : String
+    private lateinit var shoppingService : ShoppingService
 
     override fun initViewModel() {
         shoppingViewModel = ViewModelProvider(requireActivity()).get(ShoppingViewModel::class.java)
         binding.lifecycleOwner = this
-
+        shoppingService = ShoppingService()
+        shoppingService.setshoppingView(this)
     }
     override fun initView() {
-        val dummydata = listOf(
-            FoodMainList(R.drawable.img_dummy_food1,"닭가슴살 부리또",5f,22,12500),
-            FoodMainList(R.drawable.img_dummy_food1,"닭가슴살 부리또",5f,22,12500),
-            FoodMainList(R.drawable.img_dummy_food1,"닭가슴살 부리또",5f,22,12500),
-            FoodMainList(R.drawable.img_dummy_food1,"닭가슴살 부리또",5f,22,12500),
-        )
-
-        val mLayoutManager: RecyclerView.LayoutManager = GridLayoutManager(requireContext(), 2)
-        binding.shoppingMainrv.layoutManager = mLayoutManager
-        val shoppingFoodAdapter = ShoppingFoodAdapter()
-        shoppingFoodAdapter.setFoods(dummydata)
-        binding.shoppingMainrv.adapter = shoppingFoodAdapter
-
+        val options = mutableMapOf<String,String>()
+        shoppingService.getPList(options)
         binding.shoppingEdittv.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
@@ -67,5 +63,30 @@ class FragmentShopping : BaseFragment<FragmentShoppingBinding>(R.layout.fragment
             handled
         }
 
+    }
+
+    override fun onPlistLoading() {
+        binding.shoppingPlistProgressbar.visibility = View.VISIBLE
+    }
+
+    override fun onPlistSuccess(foodList: ArrayList<DietmkResponseItem>) {
+        val activity = activity
+        if(activity != null){
+            binding.shoppingPlistProgressbar.visibility = View.GONE
+            val dummydata = mutableListOf<FoodMainList>()
+            for(i in 0..kotlin.math.min(foodList.size-1, 7)){
+                dummydata.add(FoodMainList(foodList[i].product_image, foodList[i].product_name,5f,0,foodList[i].price))
+            }
+            val mLayoutManager: RecyclerView.LayoutManager = GridLayoutManager(requireContext(), 2)
+            binding.shoppingMainrv.layoutManager = mLayoutManager
+            val shoppingFoodAdapter = ShoppingFoodAdapter()
+            shoppingFoodAdapter.setFoods(dummydata)
+            binding.shoppingMainrv.adapter = shoppingFoodAdapter
+        }
+    }
+
+    override fun onPlistFailure(message: String) {
+        Toast.makeText(requireContext(),message,Toast.LENGTH_SHORT).show()
+        binding.shoppingPlistProgressbar.visibility = View.GONE
     }
 }

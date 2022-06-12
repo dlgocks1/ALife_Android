@@ -28,6 +28,7 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.time.format.TextStyle
 import java.util.*
+import kotlin.math.roundToInt
 
 class FragmentCalendar : BaseFragment<FragmentCalendarBinding>(R.layout.fragment_calendar),UserDetailView{
 
@@ -42,14 +43,7 @@ class FragmentCalendar : BaseFragment<FragmentCalendarBinding>(R.layout.fragment
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun initView() {
-        val moringadpater = CalendarFoodAdapter()
-        val dummyfoodList = arrayOf(
-            Food("순두부 국","253kcal",R.drawable.img_dummy_food),
-            Food("순두부 국","253kcal",R.drawable.img_dummy_food),
-            Food("순두부 국","253kcal",R.drawable.img_dummy_food))
-        moringadpater.setFoods(dummyfoodList.toList())
-        binding.calendarMorningRv.adapter = moringadpater
-        binding.calendarLunchRv.adapter = moringadpater
+
         binding.calendarRadiobt1.isChecked = true
 
         // 월 가져오기
@@ -58,6 +52,7 @@ class FragmentCalendar : BaseFragment<FragmentCalendarBinding>(R.layout.fragment
         val formatted = current.format(formatter)
         binding.calendarMonthTv.setText(formatted)
 
+        // 일 가져오기
         val cal = Calendar.getInstance()
         cal.time = Date()
         val df: DateFormat = SimpleDateFormat("yyyy-mm-dd")
@@ -69,9 +64,56 @@ class FragmentCalendar : BaseFragment<FragmentCalendarBinding>(R.layout.fragment
             cal.add(Calendar.DATE, +1)
         }
 
+        // 식단등록이 되어 있으면
         if(mainViewModel.dietmk.value == true){
             binding.calendarDietContainer.visibility= View.VISIBLE
             binding.calendarDietEmptyContainer.visibility= View.GONE
+
+            val calendarAdpater1 = CalendarFoodAdapter()
+            val calendarAdpater2 = CalendarFoodAdapter()
+            val calendarAdpater3 = CalendarFoodAdapter()
+            val dummFoodList1 = mutableListOf<Food>()
+            val dummFoodList2 = mutableListOf<Food>()
+            val dummFoodList3 = mutableListOf<Food>()
+            var morningtotalkcal = 0
+            var lunchtotalkcal = 0
+            var dinnertotalkcal = 0
+
+            for(i in mainViewModel.foodList.value!!){
+                if(i.time == "morning"){
+                    dummFoodList1.add(i.food)
+                    morningtotalkcal += i.food.kcal.toFloat().roundToInt()
+                }else if(i.time =="lunch"){
+                    dummFoodList2.add(i.food)
+                    lunchtotalkcal += i.food.kcal.toFloat().roundToInt()
+                }else{
+                    dummFoodList3.add(i.food)
+                    dinnertotalkcal += i.food.kcal.toFloat().roundToInt()
+                }
+            }
+            calendarAdpater1.setFoods(dummFoodList1)
+            binding.calendarMorningRv.adapter = calendarAdpater1
+            if(morningtotalkcal == 0){
+                binding.calendarMorningTotalkcalTv.setText("아침이 없습니다.")
+            }else{
+                binding.calendarMorningTotalkcalTv.setText("Total ${morningtotalkcal}kcal")
+            }
+
+            calendarAdpater2.setFoods(dummFoodList2)
+            binding.calendarLunchRv.adapter = calendarAdpater2
+            if(lunchtotalkcal == 0){
+                binding.calendarLunchTotalkcalTv.setText("점심이 없습니다.")
+            }else{
+                binding.calendarLunchTotalkcalTv.setText("Total ${lunchtotalkcal}kcal")
+            }
+            
+            calendarAdpater3.setFoods(dummFoodList3)
+            binding.calendarDinnerRv.adapter = calendarAdpater3
+            if(dinnertotalkcal == 0){
+                binding.calendarDinnerTotalkcalTv.setText("저녁이 없습니다.")
+            }else{
+                binding.calendarDinnerTotalkcalTv.setText("Total ${dinnertotalkcal}kcal")
+            }
         }else{
             binding.calendarDietEmptyContainer.visibility= View.VISIBLE
             binding.calendarDietContainer.visibility= View.GONE
@@ -82,6 +124,7 @@ class FragmentCalendar : BaseFragment<FragmentCalendarBinding>(R.layout.fragment
             userDetailService.getUserDetail()
 //            userDetailService.getUserDetail("hc2@naver.com","testtest!")
         }
+
         binding.calendarDietMakebt.setOnClickListener {
             startActivity(Intent(requireContext(), DietmkActivity::class.java))
         }
@@ -89,6 +132,7 @@ class FragmentCalendar : BaseFragment<FragmentCalendarBinding>(R.layout.fragment
     }
 
     override fun onUserDetailSuccess() {
+
         val intent = Intent(requireContext(), UserinfoAcitivity::class.java)
         intent.putExtra("isDetail",true)
         startActivity(intent)
@@ -99,4 +143,5 @@ class FragmentCalendar : BaseFragment<FragmentCalendarBinding>(R.layout.fragment
         intent.putExtra("isDetail",false)
         startActivity(intent)
     }
+    
 }

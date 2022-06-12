@@ -7,6 +7,7 @@ import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModelProvider
 import com.alife.alife_medifood_android.R
 import com.alife.alife_medifood_android.data.Food
+import com.alife.alife_medifood_android.data.FoodwithTime
 import com.alife.alife_medifood_android.databinding.ActivityDietmkShoppingCartBinding
 import com.alife.alife_medifood_android.ui.BaseActivity
 import com.alife.alife_medifood_android.ui.BaseFragment
@@ -22,6 +23,7 @@ class ActivityDietmkShoppingCart : BaseActivity<ActivityDietmkShoppingCartBindin
     private var totalprice = 0
     private var totalkcal = 0
     private var totalcount = 0
+    private val foodListforResult = mutableListOf<FoodwithTime>()
 
     override fun initViewModel() {
 
@@ -39,24 +41,35 @@ class ActivityDietmkShoppingCart : BaseActivity<ActivityDietmkShoppingCartBindin
 
         if(intent.hasExtra("FoodList")){
             val gson = Gson()
-
-            Log.d("test",gson.fromJson(intent.getStringExtra("FoodList"), ArrayList<Food>()::class.java).toString())
-            val foodList = gson.fromJson(intent.getStringExtra("FoodList"), Array<Food>::class.java).toList() as ArrayList<Food>
+            val foodList = gson.fromJson(intent.getStringExtra("FoodList"), Array<Food>::class.java).toList()
             dietmkFoodListAdapter.setFoods(foodList)
 
             dietmkFoodListAdapter.setOnItemClickListener(object : DietmkShoppingCartFoodListAdapter.OnClickInterface{
-                override fun onItemClick(food: Food, check: Boolean) {
-                    if(check){
+                override fun onItemClick(food: Food,time:String, check: Boolean) {
+                    // 체크되어있으며, 중복으로 들어가 있다면
+                    if(check &&
+                        (foodListforResult.contains(FoodwithTime(food,"morning")) ||
+                        foodListforResult.contains(FoodwithTime(food,"lunch"))  ||
+                        foodListforResult.contains(FoodwithTime(food,"dinner"))  )){
+                        foodListforResult.remove(FoodwithTime(food,"morning"))
+                        foodListforResult.remove(FoodwithTime(food,"lunch"))
+                        foodListforResult.remove(FoodwithTime(food,"dinner"))
+                        foodListforResult.add(FoodwithTime(food,time))
+                    }else if(check){
                         totalprice += food.price
                         totalkcal += food.kcal.toFloat().roundToInt()
-                        totalcount+=1
-                    }else{
-                        totalcount-=1
+                        totalcount += 1
+                        foodListforResult.add(FoodwithTime(food,time))
+                    }else if(!check &&
+                        (foodListforResult.contains(FoodwithTime(food,"morning"))  ||
+                        foodListforResult.contains(FoodwithTime(food,"lunch")) ||
+                        foodListforResult.contains(FoodwithTime(food,"dinner")) )){
+                        totalcount -= 1
                         totalprice -= food.price
                         totalkcal -= food.kcal.toFloat().roundToInt()
+                        foodListforResult.remove(FoodwithTime(food,time))
                     }
                     val decimalFormat: DecimalFormat = DecimalFormat("#,###")
-//                    val price = decimalFormat.format(totalprice.toString().replace(",".toRegex(), "").toDouble())
                     binding.dietmkShoppingCartTotalpriceTv.text = "${decimalFormat.format(totalprice.toString().replace(",".toRegex(), "").toDouble())} 원"
                     binding.dietmkShoppingCartTotalkcalTv.text = "${decimalFormat.format(totalkcal.toString().replace(",".toRegex(), "").toDouble())} kcal"
                     binding.dietmkShoppingCartTotalcountTv.text="선택 상품 ${totalcount}개"
@@ -69,8 +82,8 @@ class ActivityDietmkShoppingCart : BaseActivity<ActivityDietmkShoppingCartBindin
             val intent = Intent(this, MainActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             intent.putExtra("isMakeDiet",true)
+            intent.putExtra("FoodList",Gson().toJson(foodListforResult))
             startActivity(intent)
         }
-
     }
 }

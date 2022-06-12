@@ -1,5 +1,7 @@
 package com.alife.alife_medifood_android.ui.home.dietmk.dietmkservice
 
+import android.util.Log
+import com.alife.alife_medifood_android.getReposit
 import com.alife.alife_medifood_android.ui.home.dietmk.FragmentDietmkSelectFood
 import com.alife.alife_medifood_android.ui.start.signup.service.DietmkView
 import com.google.gson.Gson
@@ -16,27 +18,19 @@ class DietmkService {
     private lateinit var dietmkView: DietmkView
     private val gson = Gson()
 
-    fun getReposit(): Retrofit {
-        val retrofit = Retrofit.Builder()
-            .baseUrl("http://218.50.154.150:8080") //
-            .addConverterFactory(ScalarsConverterFactory.create())
-            .addConverterFactory(GsonConverterFactory.create(gson))
-            .build()
-        return retrofit
-    }
-
     fun setdietmkView(dietmkView: DietmkView) {
         this.dietmkView = dietmkView
     }
 
-    fun getRecFood(price : Int) {
+    fun getRecFood(price : Int,options : Map<String,String>) {
         val service = getReposit().create(DietmkInterface::class.java)
         val basic = Credentials.basic("hc2@naver.com", "testtest!")
-
         dietmkView.onDeitmkLoading()
-        service.getrecFood(basic,price).enqueue(object :
+        service.getrecFood(basic,price,options).enqueue(object :
             Callback<DietmkResponse> {
             override fun onResponse(call: Call<DietmkResponse>, response: Response<DietmkResponse>) {
+                Log.d("test",response.toString())
+                Log.d("test",response.body().toString())
                 when(response.code()){
                     200 -> {
                         val resp = response.body()!!

@@ -15,4 +15,5 @@ class ShoppingViewModel : ViewModel() {
     fun setSearchStr(str : String){
         _searchStr.value = str
     }
+
 }

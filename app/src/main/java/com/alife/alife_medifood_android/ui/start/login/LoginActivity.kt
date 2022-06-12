@@ -32,13 +32,19 @@ class LoginActivity:BaseActivity<ActivityLoginBinding>(R.layout.activity_login),
         binding.loginBt.setOnClickListener(onClickListener)
     }
 
+    override fun onLoginLoading() {
+        binding.loadingProgressBar.visibility=View.VISIBLE
+    }
+
     override fun onLoginSuccess(user: User) {
         AlifeApplication.useremail = binding.loginEmailEdittv.text.toString()
+        binding.loadingProgressBar.visibility=View.GONE
         AlifeApplication.password = binding.loginPasswdEdittv.text.toString()
         startActivityWithClear(MainActivity::class.java)
     }
 
     override fun onLoginFailure(message: String) {
+        binding.loadingProgressBar.visibility=View.GONE
         Toast.makeText(this,message,Toast.LENGTH_SHORT).show()
     }
 }

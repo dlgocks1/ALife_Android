@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.alife.alife_medifood_android.R
 import com.alife.alife_medifood_android.data.FoodMainList
+import com.bumptech.glide.Glide
 
 class ShoppingFoodAdapter : RecyclerView.Adapter<ShoppingFoodAdapter.Viewholder>() {
     private var foodlist: List<FoodMainList> = listOf()
@@ -37,7 +38,13 @@ class ShoppingFoodAdapter : RecyclerView.Adapter<ShoppingFoodAdapter.Viewholder>
         fun bind(food: FoodMainList) {
             nameTv.text = food.name
             priceTv.text = "${food.price} 원"
-            foodimgIv.setImageResource(food.img)
+//            foodimgIv.setImageResource(food.img)
+            Glide
+                .with(itemView)
+                .load(food.img)
+                .centerCrop()
+                .placeholder(R.drawable.img_ready)
+                .into(foodimgIv)
         }
     }
 

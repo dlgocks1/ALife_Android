@@ -120,7 +120,7 @@ class UserinfoAcitivity : BaseActivity<ActivityUserinfoBinding>(R.layout.activit
                 2 -> FragmentSignupFoodcategory()
                 3 -> FragmentSignupFoodAllergy()
                 4 -> FragmentSignupFoodmanagement()
-                5 -> FragmentSignupFoodfavor()
+                5 -> FragmentSignupFoodfavor("Signup")
                 else -> FragmentSignupFoodcategory()
             }
         }

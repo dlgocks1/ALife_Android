@@ -136,6 +136,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
+                android:id="@+id/home_content_protein_tv"
                 android:text="1250g/7514g"/>
         </LinearLayout>
         <LinearLayout
@@ -182,6 +183,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
+                android:id="@+id/home_content_fat_tv"
                 android:text="1250g/7514g"/>
         </LinearLayout>
         <LinearLayout
@@ -228,6 +230,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
+                android:id="@+id/home_content_carbo_tv"
+
                 android:text="1250g/7514g"/>
         </LinearLayout>
         <LinearLayout
@@ -274,6 +278,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
+                android:id="@+id/home_content_sodium_tv"
+
                 android:text="1250g/7514g"/>
         </LinearLayout>
         <LinearLayout
@@ -295,7 +301,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_bold"
-                    android:text="비타민"
+                    android:text="당"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -320,6 +326,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
+                android:id="@+id/home_content_sugar_tv"
                 android:text="1250g/7514g"/>
         </LinearLayout>
 

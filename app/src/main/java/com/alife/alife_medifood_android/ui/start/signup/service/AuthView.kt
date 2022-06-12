@@ -11,6 +11,7 @@ interface SignupView {
 }
 
 interface LoginView {
+    fun onLoginLoading()
     fun onLoginSuccess(user: User)
     fun onLoginFailure(message : String)
 }
@@ -24,4 +25,10 @@ interface DietmkView{
     fun onDeitmkLoading()
     fun onDietmkSuccess(foodList:ArrayList<DietmkResponseItem>)
     fun onDietmkFailure(message : String)
+}
+
+interface ShoppingView{
+    fun onPlistLoading()
+    fun onPlistSuccess(foodList:ArrayList<DietmkResponseItem>)
+    fun onPlistFailure(message : String)
 }

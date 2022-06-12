@@ -18,7 +18,7 @@ class DietmkActivity : BaseActivity<ActivityDietmkBinding>(R.layout.activity_die
 
     private lateinit var dietmkViewModel: DietmkViewModel
     private var backKeyPressedTime: Long = 0
-    private val TOTAL_DIETMAKE_PAGE_NUM = 2
+    private val TOTAL_DIETMAKE_PAGE_NUM = 3
 
     override fun initView() {
         binding.lifecycleOwner = this
@@ -34,13 +34,13 @@ class DietmkActivity : BaseActivity<ActivityDietmkBinding>(R.layout.activity_die
     }
 
     class DietmkPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
-        override fun getItemCount(): Int = 2
+        override fun getItemCount(): Int = 3
         override fun createFragment(position: Int): Fragment {
             return when (position) {
-                0 -> FragmentDietmkBudget()
-                1 -> FragmentDietmkSelectFood()
-//                2 -> ActivityDietmkShoppingCart()
-                else -> FragmentSignupFoodfavor()
+                0 -> FragmentSignupFoodfavor("Dietmk")
+                1 -> FragmentDietmkBudget()
+                2 -> FragmentDietmkSelectFood()
+                else -> FragmentSignupFoodfavor("Dietmk")
             }
         }
     }
@@ -58,7 +58,7 @@ class DietmkActivity : BaseActivity<ActivityDietmkBinding>(R.layout.activity_die
         }else{
             if (System.currentTimeMillis() > backKeyPressedTime + 2000) {
                 backKeyPressedTime = System.currentTimeMillis()
-                Toast.makeText(this, "예산작성이 끝나지 않았어요. 종료하시겠어요?", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "식단작성이 끝나지 않았어요. 종료하시겠어요?", Toast.LENGTH_SHORT).show()
             } else if (System.currentTimeMillis() <= backKeyPressedTime + 2000) {
                 super.onBackPressed()
             }
